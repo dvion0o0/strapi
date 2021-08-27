@@ -10,16 +10,22 @@ export default function Home() {
   const handleClick = async () => {
     const form = new FormData()
     form.append("files", file)
-    const result = await axios.post("http://localhost:1337/upload", form)
+    const result = await axios.post(
+      "https://secure-escarpment-95804.herokuapp.com/upload",
+      form
+    )
     console.log(result.data[0].url)
     setUrl(result.data[0].url)
 
-    const post = await axios.post("http://localhost:1337/products", {
-      Name: "Testing",
-      Description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, labore.",
-      images: result.data[0].id,
-    })
+    const post = await axios.post(
+      "https://secure-escarpment-95804.herokuapp.com/products",
+      {
+        Name: "Testing",
+        Description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, labore.",
+        images: result.data[0].id,
+      }
+    )
     console.log(post)
   }
 
