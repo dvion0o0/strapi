@@ -18,7 +18,6 @@ export default function Home() {
       Name: "Testing",
       Description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, labore.",
-      image: result.data[0].url,
       images: result.data[0].id,
     })
     console.log(post)

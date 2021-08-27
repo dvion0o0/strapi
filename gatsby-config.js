@@ -10,7 +10,9 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: `http://localhost:1337`,
+        apiURL: process.env.DEPLOY_URL
+          ? "https://secure-escarpment-95804.herokuapp.com"
+          : "http://localhost:1337",
         queryLimit: 1000, // Defaults to 100
         collectionTypes: [`products`],
       },
