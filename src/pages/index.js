@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import axios from "axios"
 export default function Home() {
   const [file, setFile] = useState("")
@@ -6,6 +6,16 @@ export default function Home() {
   const handleChange = async e => {
     setFile(e.target.files[0])
   }
+  const fetch = async () => {
+    const data = await axios.get(
+      "https://secure-escarpment-95804.herokuapp.com/products"
+    )
+    console.log(data)
+  }
+
+  useEffect(() => {
+    fetch()
+  }, [])
 
   const handleClick = async () => {
     const form = new FormData()
@@ -18,7 +28,7 @@ export default function Home() {
     setUrl(result.data[0].url)
 
     const post = await axios.post(
-      "https://secure-escarpment-95804.herokuapp.com/products",
+      "https://secure-escarpment-95804.herokuapp.comgg/products",
       {
         Name: "Testing",
         Description:
